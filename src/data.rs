@@ -1,6 +1,6 @@
 use memmap2::{Mmap, MmapMut};
 use std::fs::{File, OpenOptions};
-use std::os::unix::fs::OpenOptionsExt;
+// use std::os::unix::fs::OpenOptionsExt;
 
 use crate::instance::InstanceVersion;
 use crate::synchronizer::SynchronizerError;
@@ -37,7 +37,7 @@ impl DataContainer {
             .read(true)
             .write(true)
             .create(true)
-            .mode(0o640) // set file mode to allow read/write from owner, read from group only
+            // .mode(0o640) // set file mode to allow read/write from owner, read from group only
             .open(version.path(&self.base_path))
             .map_err(FailedDataWrite)?;
 

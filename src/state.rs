@@ -1,7 +1,7 @@
 use memmap2::MmapMut;
 use std::fs::OpenOptions;
 use std::ops::Add;
-use std::os::unix::fs::OpenOptionsExt;
+// use std::os::unix::fs::OpenOptionsExt;
 use std::sync::atomic::{AtomicU32, AtomicU64, Ordering};
 use std::time::{Duration, Instant};
 use std::{mem, thread};
@@ -122,7 +122,7 @@ impl StateContainer {
                 .read(true)
                 .write(true)
                 .create(create)
-                .mode(0o660) // set file mode to allow read/write from owner/group only
+                // .mode(0o660) // set file mode to allow read/write from owner/group only
                 .open(&self.state_path)
                 .map_err(FailedStateRead)?;
 
